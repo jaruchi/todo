@@ -1,0 +1,27 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server --port 7439 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaruchi/todo.git"
+  },
+  "author": "Ruchi Agarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaruchi/todo/issues"
+  },
+  "homepage": "https://github.com/jaruchi/todo#readme",
+  "devDependencies": {
+    "http-server": "^13.0.2",
+    "livereload": "^0.9.3"
+  },
+  "dependencies": {
+    "https": "^1.0.0"
+  }
+}
