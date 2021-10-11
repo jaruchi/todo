@@ -1,6 +1,8 @@
-function getToDoItem(text) {
+function getToDoItem(text, isCompleted) {
     const divTag = document.createElement('div');
-    divTag.classList = "todo-item ";
+    storeDataVal(divTag, text, isCompleted);
+
+    divTag.classList = isCompleted ? "todo-item checked" : "todo-item ";
 
     addCheckBox(divTag);
 
@@ -22,8 +24,8 @@ function addDeleteButton(divTag) {
 
     deleteButton.addEventListener('click', function (e) {
         divTag.remove();
+        addTodosToStore();
     })
-
 }
 
 function addCheckBox(divTag) {
@@ -34,11 +36,16 @@ function addCheckBox(divTag) {
     inputTag.addEventListener('change', handleInputChangeEvent)
 }
 
+
 function toggleCheckBoxStyle(inputTag, divTag) {
     if (inputTag.checked)
         divTag.classList.add('checked');
     else
         divTag.classList.remove('checked');
+
+    storeDataVal(divTag, divTag.innerText, inputTag.checked)
+
+    addTodosToStore();
 }
 
 function handleInputChangeEvent(e) {
@@ -47,20 +54,27 @@ function handleInputChangeEvent(e) {
     toggleCheckBoxStyle(inputTag, divTag);
 }
 
-function addItems() {
-    const todos = document.querySelector(".todos");
-    const textBox = document.querySelector("#new-todo");
-    const todoItem = getToDoItem(textBox.value);
 
-    
+function addItemToList(text, isCompleted) {
+    const todos = document.querySelector(".todos");
+    const todoItem = getToDoItem(text, isCompleted ? true : false);
     todos.appendChild(todoItem);
+
+    addTodosToStore();
+}
+function addItems() {
+    const textBox = document.querySelector("#new-todo");
+    addItemToList(textBox.value)
     textBox.value = "";
 }
+
 function clearBox() {
     const textBox = document.querySelector("#new-todo");
     textBox.value = "";
 }
+
 function initializeSubmitButton() {
+    restoreTODOs();
     document.querySelector("#new-todo").onclick = clearBox;
     document.querySelector('#generate-todo').onclick = addItems;
 
@@ -68,7 +82,7 @@ function initializeSubmitButton() {
     const todoItem = getToDoItem(textBox.value);
 
     textBox.addEventListener("keypress", function (event) {
- 
+
         // Checking if key pressed is ENTER or not
         // if the key pressed is ENTER
         // click listener on button is called
@@ -77,3 +91,31 @@ function initializeSubmitButton() {
         }
     });
 }
+
+/////
+
+function restoreTODOs() {
+    const todos = getTodosFromStore();
+    for (let todo of todos) {
+        addItemToList(todo.content, todo.completed)
+    }
+}
+
+function storeDataVal(divTag, text, status) {
+    divTag.setAttribute('data-val', JSON.stringify({
+        content: text, completed: status
+    }));
+}
+
+
+function addTodosToStore() {
+
+    const todos = document.querySelectorAll(".todos>.todo-item");
+    const l = []
+    for (let c of [...todos]) {
+        l.push(JSON.parse(c.getAttribute('data-val')))
+    }
+
+    saveTodosToStore(l)
+}
+
