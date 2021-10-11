@@ -21,5 +21,11 @@
   "html.format.enable": true,
   "editor.formatOnType": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "css.hover.documentation": true
+  "css.hover.documentation": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }

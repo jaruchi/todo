@@ -1,5 +1,8 @@
 function startAllScripts() {
-  resetClock();
+  //resetClock();
+  setHeader();
+  //debugger;
+  initializeSubmitButton();
 }
 
 startAllScripts();

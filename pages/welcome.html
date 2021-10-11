@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lets do it!</title>
 
-    <script src="/js/timer.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Lets do it!</title>
 
-    <link rel="stylesheet" href="/css/app.css" />
-  </head>
-  <body>
-    <!----YOUR HTML-->
-    <div id="header" class="nav-bar horizontal"></div>
-    <div>
-      <h1>We can help you finish your errends</h1>
-      <div id="timer"></div>
+  <script src="/js/timer.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/input.js"></script>
+
+
+  <script src="https://livejs.com/live.js" async crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+  <!----YOUR HTML
+           <label>Let's add new tasks to the To-Do list</label>L-->
+
+  <div class="header"></div>
+  <div class="todo-app">
+    <div class="input-area">
+      <input id="new-todo" type="text" placeholder="add a to-do"></input>
+      <button id="generate-todo">Add</button>
     </div>
-    <div id="footer" class="footer sitemap horizontal"></div>
+    <div class="dispaly-area">
+      <h2>Tasks To-Do</h2>
+      <div class="todos"></div>
+    </div>
+  </div>
+  <div id="timer"></div>
+  <div id="footer" class="footer sitemap horizontal"></div>
 
-    <!-- boiler plate dont touch it-->
 
-    <script src="/js/app.js"></script>
-  </body>
+  <!-- boiler plate dont touch it-->
+
+  <script src="/js/app.js"></script>
+</body>
+
 </html>
