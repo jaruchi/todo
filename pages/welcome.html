@@ -7,6 +7,9 @@
     <title>Lets do it!</title>
 
     <script src="/js/timer.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/input.js"></script>
+
 
     <script
       src="https://livejs.com/live.js"
@@ -17,12 +20,19 @@
   </head>
   <body>
     <!----YOUR HTML-->
-    <div id="header" class="nav-bar horizontal"></div>
-    <div>
-      <h1>We can help you finish your errends</h1>
+  
+     <div class="header"></div>
+     <label>Let's add new things to the to-do list</label>
+     <input id="new-todo" type="text" placeholder ="add a to-do"></input>
+     <button id="generate-todo">Add to the Tasks List!</button>
+     <h2>Tasks To-Do</h2>
+     <div class="todos">
+      </div>
+
       <div id="timer"></div>
     </div>
     <div id="footer" class="footer sitemap horizontal"></div>
+   
 
     <!-- boiler plate dont touch it-->
 

@@ -1,4 +1,32 @@
-body{
-    background-color: red;
+body {
+  background-color: rgb(53, 53, 75);
+}
+.todos {
+  border: 1px solid transparent;
+}
+.todo-item {
+  /* border: 5px dashed green; */
+  margin: 30px;
+  padding: 2px;
+  color: rgb(242, 247, 255);
+  font-size: 28px;
+  display: block;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
+.todo-item.checked {
+  text-decoration: line-through;
+}
+.todo-item button {
+  position: absolute;
+  right: 0em;
+  top: 6px;
+  height: 20px;
+}
+h1 {
+  text-align: center;
+}
+label {
+  font-style: italic;
 }
