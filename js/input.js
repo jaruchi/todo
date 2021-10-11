@@ -15,7 +15,9 @@ function getToDoItem(text) {
 
 function addDeleteButton(divTag) {
     const deleteButton = document.createElement('button');
-    deleteButton.innerText = "X";
+    const iTag = document.createElement('i');
+    iTag.setAttribute('class', 'glyphicon glyphicon-trash');
+    deleteButton.appendChild(iTag);
     divTag.appendChild(deleteButton);
 
     deleteButton.addEventListener('click', function (e) {
@@ -30,7 +32,6 @@ function addCheckBox(divTag) {
     divTag.appendChild(inputTag);
 
     inputTag.addEventListener('change', handleInputChangeEvent)
-    //inputTag.addEventListener('change', toggleCheckBoxStyle(inputTag, divTag));
 }
 
 function toggleCheckBoxStyle(inputTag, divTag) {
@@ -50,6 +51,8 @@ function addItems() {
     const todos = document.querySelector(".todos");
     const textBox = document.querySelector("#new-todo");
     const todoItem = getToDoItem(textBox.value);
+
+    
     todos.appendChild(todoItem);
     textBox.value = "";
 }
@@ -60,4 +63,17 @@ function clearBox() {
 function initializeSubmitButton() {
     document.querySelector("#new-todo").onclick = clearBox;
     document.querySelector('#generate-todo').onclick = addItems;
+
+    const textBox = document.querySelector("#new-todo");
+    const todoItem = getToDoItem(textBox.value);
+
+    textBox.addEventListener("keypress", function (event) {
+ 
+        // Checking if key pressed is ENTER or not
+        // if the key pressed is ENTER
+        // click listener on button is called
+        if (event.keyCode == 13) {
+            addItems();
+        }
+    });
 }
